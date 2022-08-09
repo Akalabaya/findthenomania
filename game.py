@@ -25,7 +25,7 @@ except:
     pass
 
 print("================================================")
-print("Welcome to gussing mania....!!!")
+print("Welcome to guessing mania....!!!")
 try:
     print("Your Best:"+open("highscore.txt","r").read()+" Attempts...")    
 except:
