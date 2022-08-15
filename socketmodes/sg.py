@@ -137,11 +137,13 @@ print("""
 choice = input("Enter your choice: ")
 if int(choice) == 1:
 	port = random.randint(1000,5000)
-	print("[+] Connecting to ngrokForward")
-	ngrok.set_auth_token(sys.argv[1])
-	ssh_tunnel = ngrok.connect(port, "tcp")
-	print("Public Url:"+ssh_tunnel.public_url.replace("tcp://","https://"))
-
+	try:
+		print("[+] Connecting to ngrokForward")
+		ngrok.set_auth_token(sys.argv[1])
+		ssh_tunnel = ngrok.connect(port, "tcp")
+		print("Public Url:"+ssh_tunnel.public_url.replace("tcp://","https://"))
+	except:
+		pass
 	playcreate(port)
 	input("[+]Press Enter to exit...")
 else:
