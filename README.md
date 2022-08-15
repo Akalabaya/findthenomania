@@ -41,7 +41,7 @@ Then open the repository and Install requirements
 
 Then you can use above documentation to use the program
 
-The socketmodes folder conatains files for the multiplayer
+The ```socketmodes``` folder conatains files for the multiplayer
 
 ## Run Locally
 
