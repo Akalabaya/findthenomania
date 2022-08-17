@@ -13,6 +13,15 @@ from playsound import playsound
 import threading
 import colorama
 from colorama import Back,Fore
+import pyperclip
+
+
+def playsoundbackr():
+         while True:
+            playsound("background.mp3")
+
+thread = threading.Thread(target=playsoundbackr)
+
 
 def get_ip():
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -31,15 +40,6 @@ def get_ip():
 
 def play(c):
 
-	print("")
-
-	print("================================================")
-	print("Welcome to guessing mania....!!!")
-	try:
-		print("Your Best:"+open("highscore.txt","r").read()+" Attempts...") 
-	except:
-		print("Welcome for the first time!!!")   	
-	print("================================================")
 	lt = 1500
 	
 	#print(n)
@@ -73,6 +73,8 @@ def play(c):
 				print("[+] You won...")
 				print("Oppentent attempts:"+str(r))
 				break
+			elif attepmts == int(r):
+				print("[+] Match Tied...")
 			else:
 				print("[+] You lost...")
 				print("Oppentent attempts:"+str(r))
@@ -118,6 +120,7 @@ def playcreate(port):
       break
 
 
+
 print("")
 
 print("================================================")
@@ -136,17 +139,24 @@ print("""
 
 choice = input("Enter your choice: ")
 if int(choice) == 1:
+	colorama.init()
+	print(Back.GREEN)
+	print(colorama.ansi.clear_screen())
 	port = random.randint(1000,5000)
 	try:
 		print("[+] Connecting to ngrokForward")
 		ngrok.set_auth_token(sys.argv[1])
 		ssh_tunnel = ngrok.connect(port, "tcp")
 		print("Public Url:"+ssh_tunnel.public_url.replace("tcp://","https://"))
+		pyperclip.copy(ssh_tunnel.public_url.replace("tcp://","https://"))
 	except:
 		pass
 	playcreate(port)
 	input("[+]Press Enter to exit...")
 else:
+	colorama.init()
+	print(Back.CYAN)
+	print(colorama.ansi.clear_screen())
 	load_play()
 
 

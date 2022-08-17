@@ -8,6 +8,7 @@ from playsound import playsound
 import threading        
 import colorama
 from colorama import Back,Fore
+import pyperclip
 
 def play(c,ato):
 
@@ -41,6 +42,8 @@ def play(c,ato):
 	if attepmts < ato:
 		print("You won the game!!!!")
 		print("Oppentent attempts:"+str(ato))
+	elif attepmts == int(ato):
+			print("[+] Match Tied...")
 	else:
 		print("You lost the game!!!")
 		print("Oppentent attempts:"+str(ato))
@@ -56,8 +59,13 @@ def play(c,ato):
 
 def load_play():
 	# Create a socket object
-	s = socket.socket()        
-	url = input("Enter a URL to connect:")
+	s = socket.socket()
+	sn = pyperclip.paste()
+	url = ""
+	if str(sn).startswith("https://") or str(sn).startswith("http://"):
+		url = str(sn)
+	else:
+		url = input("Enter a URL to connect:")
 	# Define the port on which you want to connect
 	att2 = 0
 	host = url.replace("http://","").replace("https://","").split(":")[0]
