@@ -62,9 +62,8 @@ def load_play():
 	s = socket.socket()
 	sn = pyperclip.paste()
 	url = ""
-	if str(sn).startswith("https://") or str(sn).startswith("http://"):
-		if "ngrok" in str(sn):
-			url = str(sn)
+	if (str(sn).startswith("https://") or str(sn).startswith("http://")) and "ngrok" in str(sn):
+		url = str(sn)
 	else:
 		url = input("Enter a URL to connect:")
 	# Define the port on which you want to connect
