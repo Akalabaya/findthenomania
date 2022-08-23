@@ -43,7 +43,7 @@ Then you can use above documentation to use the program
 
 The ```socketmodes``` folder conatains files for the multiplayer
 
-## Run Locally
+## To Play Multiplayer
 
 Clone the project
 
@@ -59,3 +59,5 @@ to play multiplayer over WAN and LAN
 
 ``` python gamemultiplayer.py  [your ngrok api token] ```
 
+## Download Built Binaries
+<a href="https://github.com/Akalabaya/findthenomania/releases">Download From Realeases</a>
