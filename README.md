@@ -60,4 +60,4 @@ to play multiplayer over WAN and LAN
 ``` python gamemultiplayer.py  [your ngrok api token] ```
 
 ## Download Built Binaries
-<a href="https://github.com/Akalabaya/findthenomania/releases">Download From Realeases</a>
+<a href="https://github.com/Akalabaya/findthenomania/releases">Download From Releases</a>
